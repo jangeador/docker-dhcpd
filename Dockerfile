@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM resin/rpi-raspbian
 
 MAINTAINER Robin Smidsrød <robin@smidsrod.no>
 
@@ -12,6 +12,6 @@ RUN apt-get -q -y update \
  && apt-get -q -y clean \
  && rm -rf /var/lib/apt/lists/*
 
-COPY util/dumb-init_1.2.0_amd64 /usr/bin/dumb-init
+COPY util/dumb-init /usr/bin/dumb-init
 COPY util/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
