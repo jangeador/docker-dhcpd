@@ -1,0 +1,10 @@
+version: '2.2'
+services:
+  dhcp-server:
+    build: .
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - IFACE=eth0
+    volumes:
+      - ./data:/data
